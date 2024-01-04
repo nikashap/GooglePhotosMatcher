@@ -74,6 +74,10 @@ def createFolders(fixed, nonEdited):
     if not os.path.exists(nonEdited):
         os.mkdir(nonEdited)
 
+def set_file_timestamps(file_path, new_time):
+    # Set the access and modified times to the new_time
+    os.utime(file_path, (new_time, new_time))
+    
 # def setWindowsTime(filepath, timeStamp):
 #     """
 #     NOTE: this function appears to be Windows OS-specific
