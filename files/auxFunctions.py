@@ -1,9 +1,11 @@
 import os
 import time
 from datetime import datetime
+import time
 import piexif
-from win32_setctime import setctime
 from fractions import Fraction
+## The imports below are for Window's specific OS
+# from win32_setctime import setctime
 
 
 # Function to search media associated to the JSON
@@ -72,15 +74,15 @@ def createFolders(fixed, nonEdited):
     if not os.path.exists(nonEdited):
         os.mkdir(nonEdited)
 
-def setWindowsTime(filepath, timeStamp):
-    """
-    NOTE: this function appears to be Windows OS-specific
-    sets the access and modified time of the file of the specified path
-    """
-    setctime(filepath, timeStamp)  # Set windows file creation time
-    date = datetime.fromtimestamp(timeStamp)
-    modTime = time.mktime(date.timetuple())
-    os.utime(filepath, (modTime, modTime))  # Set windows file modification time
+# def setWindowsTime(filepath, timeStamp):
+#     """
+#     NOTE: this function appears to be Windows OS-specific
+#     sets the access and modified time of the file of the specified path
+#     """
+#     setctime(filepath, timeStamp)  # Set windows file creation time
+#     date = datetime.fromtimestamp(timeStamp)
+#     modTime = time.mktime(date.timetuple())
+#     os.utime(filepath, (modTime, modTime))  # Set windows file modification time
 
 def to_deg(value, loc):
     """convert decimal coordinates into degrees, munutes and seconds tuple
