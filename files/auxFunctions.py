@@ -73,6 +73,10 @@ def createFolders(fixed, nonEdited):
         os.mkdir(nonEdited)
 
 def setWindowsTime(filepath, timeStamp):
+    """
+    NOTE: this function appears to be Windows OS-specific
+    sets the access and modified time of the file of the specified path
+    """
     setctime(filepath, timeStamp)  # Set windows file creation time
     date = datetime.fromtimestamp(timeStamp)
     modTime = time.mktime(date.timetuple())
@@ -107,6 +111,7 @@ def change_to_rational(number):
 
 
 def set_EXIF(filepath, lat, lng, altitude, timeStamp):
+    """sets the EXIF specified at filepath with the corresponding lat, lng, altitude, and time stamp"""
     exif_dict = piexif.load(filepath)
 
     dateTime = datetime.fromtimestamp(timeStamp).strftime("%Y:%m:%d %H:%M:%S")  # Create date object
