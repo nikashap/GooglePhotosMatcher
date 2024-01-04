@@ -1,7 +1,6 @@
 import os
 import time
 from datetime import datetime
-import time
 import piexif
 from fractions import Fraction
 ## The imports below are for Window's specific OS
@@ -77,7 +76,7 @@ def createFolders(fixed, nonEdited):
 def set_file_timestamps(file_path, new_time):
     # Set the access and modified times to the new_time
     os.utime(file_path, (new_time, new_time))
-    
+
 # def setWindowsTime(filepath, timeStamp):
 #     """
 #     NOTE: this function appears to be Windows OS-specific
@@ -155,5 +154,3 @@ def set_EXIF(filepath, lat, lng, altitude, timeStamp):
     except Exception as e:
         print("Coordinates not settled")
         pass
-
-
